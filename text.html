@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<script type="text/javascript">
+	
+
+let f = document.getElementById("pizza-frozen");
+let b = document.getElementById("pause");
+
+function toggleFrozen(e) {
+	f.classList.toggle('paused');
+}
+
+function frozen(e) {
+	console.dir(e);
+	switch(e.type) {
+		case "animationstart":
+		
+		  break;
+
+		case "animationend":
+		  
+		  break;
+
+		case "animationiteration":
+			if(p.attributes["src"].nodeValue.indexOf('right') {
+				f.attributes['src'].nodeValue = "pizza-man-frozen.gif";
+			}
+			else {
+				f.attributes['src'].nodeValue = "pizza-man-right.gif"
+			}
+		  
+	}
+}
+f.addEventListener("animationstart",listener, false);
+f.addEventListener("animationend",listener, false);
+f.addEventListener("animationiteration",listener, false);
+
+b.addEventListener("click", toggleFrozen, false);
+</script>
+
+	
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript">
+    'use strict';
+    const NUMBER_OF_OVENS = 5;
+    const cookImg = document.getElementById('cook' + id);
+    const aSteps = document.getElementById('footsteps' + id);
+    const aOrderUp = document.getElementById('orderUp');
+    const aTyping = document.getElementById('type' + id);
+
+
+    const customers = 150
+    var orders = [];
+    var freezerpizza = [];
+
+    function takeOrders() {
+        var pizzas = [];
+        for (i = 0; i < customers.length; i++) {
+            var pizza = {
+                'pizzaNumber': i,
+                'typetime': 3000
+            };
+            pizzas.push(pizza)
+        }
+        return pizza;
+        console.log('order taken');
+
+        else if (customers.length = 0) {
+            console.log('no more customers');
+        }
+    }
+
+    takeOrders();
+
+    function typeOrders() {
+        typeorderincomputer(pizza)
+    }
+
+    function typeorderincomputer(pizza) {
+        console.log("typing orders")
+        for (var i = 0; i < orders.length, i++)
+            if orders[i].pizzaNumber == pizza.pizzaNumber {
+            orders.splice(i, 1);
+            oven.push(pizza);
+            console.log('pizza number ' + pizza.pizzaNumber + ' has been ordered');
+            break;
+        }
+    }
+
+    function pizzacooking(pizza) {
+        setTimeout(newpizza, pizza.typeTime, pizza);
+    }
+
+    function newpizza() {
+        takepizzaoutoffreezer(pizza)
+    }
+
+    function takepizzaoutoffreezer(pizza) {
+        console log("take pizza out of freezer")
+        for (var i = 0; i < freezerpizza.length, i++)
+            if freezerpizza[i].pizzaNumber == pizza.pizzaNumber {
+            freezerpizza.splice(i, 1);
+            freezerpizza.push(pizza);
+            console.log('pizza number' + pizza.pizzaNumber + ' has been ordered')
+        }
+    }
+
+
+
+
+    customers = takeOrders();
+    </script>
+</head>
+
+<body>
+    <h2> MARIO'S PIZZA PALACE </h2>
+    <div>
+        <audio id= "keyboard" src="sound-computer-keyboard-1.wav" />
+        <audio id="footsteps" src="sound-footsteps-2.wav" />
+        <audio id="close-fridge" src="sound-fridge-2-close.wav" />
+        <audio id= "open-fridge" src="sound-fridge-2-open.wav" />
+        <audio id="order-up" src="sound-order-up.wav" />
+        <audio id="oven-open" src="sound-oven-1-open.wav" />
+        <audio id="oven-close" src="sound-oven-1-close.wav" />
+    </div>
+    <input type="button" id="pause" value="Pause Chef" />
+    <div class="container">
+        <div class="tableContainer">
+            <img id="leftspace" src="table.png" />
+        </div>
+        <div>
+            <img class="computer" src="computer-right.png" />
+            <img src="table.png" />
+        </div>
+    </div>
+    <div class="container">
+        <img id="pizza-frozen" class="running" src="pizza-man-frozen.gif" />
+        <div class="freezerContainer">
+            <img src="freezer-open.jpg" />
+        </div>
+    </div>
+    <img id="pizza-man" class="running" src="pizza-man-right.gif" />
+    <div class="container" class="topspace">
+        <div class="tableContainer">
+            <img src="table.png" id="leftspacebottom" />
+            <img class="computerpickup" src="computer-left.png" />
+            <img src="pizza-box.png" id="pizzapickup" />
+        </div>
+        <img id="pizza-cooked" class="running" src="pizza-man.gif" src="pizza-man-left.gif" SS />
+        <div class="tableContainer">
+            <img src="oven-open.jpg" />
+        </div>
+    </div>
+    <input type="button" id="pause" value="Pause Chef" />
+
+    <script type="text/javascript">
+    let p = document.getElementById("pizza-man");
+    let b = document.getElementById("pause");
+
+    function footsteps() {
+
+    }
+
+    function toggleChef(e) {
+        p.classList.toggle('paused');
+    }
+
+    function listener(e) {
+        
+        switch (e.type) {
+            case "animationstart":
+
+                break;
+
+            case "animationend":
+
+                break;
+
+            case "animationiteration":
+                if (p.attributes["src"].nodeValue.indexOf('right') > 0) {
+                    p.attributes['src'].nodeValue = "pizza-man-left.gif";
+                } else {
+                    p.attributes['src'].nodeValue = "pizza-man-right.gif";
+                }
+
+        }
+    }
+    p.addEventListener("animationstart", listener, false);
+    p.addEventListener("animationend", listener, false);
+    p.addEventListener("animationiteration", listener, false);
+
+    b.addEventListener("click", toggleChef, false);
+    </script>
+    <script type="text/javascript">
+    let f = document.getElementById("pizza-frozen");
+    let b = document.getElementById("pause");
+
+    function toggleFrozen(e) {
+        f.classList.toggle('paused');
+    }
+
+    function listener1(e) {
+        console.dir(e);
+        switch (e.type) {
+            case "animationstart":
+
+                break;
+
+            case "animationend":
+
+                break;
+
+            case "animationiteration":
+                if (f.attributes["src"].nodeValue.indexOf('right') > 0) {
+                    f.attributes['src'].nodeValue = "pizza-man-right.gif"; 
+                } else {
+                    f.attributes['src'].nodeValue = "pizza-man-frozen.gif"
+                }
+                console.log(`new loop started after ${e.elapsedTime} seconds`);
+                break;
+        }
+    }
+    f.addEventListener("animationstart", listener, false);
+    f.addEventListener("animationend", listener, false);
+    f.addEventListener("animationiteration", listener, false);
+
+    b.addEventListener("click", toggleFrozen, false);
+    </script>
+    <script type="text/javascript">
+    let cooked = document.getElementById("pizza-man-cooked");
+    let cookedpizza = document.getElementById("pause");
+
+    function toggleChefcooked(e) {
+        p.classList.toggle('paused');
+    }
+
+    
+
+    function cooked(e) {
+        console.dir(e);
+        switch (e.type) {
+            case "animationstartcooked":
+
+                break;
+
+            case "animationendcooked":
+
+                break;
+
+            case "animationiterationcooked":
+                if (cooked.attributes["src"].nodeValue.indexOf('right') > 0) {
+                    cooked.attributes['src'].nodeValue = "pizza-man.gif";
+                } else {
+                    cooked.attributes['src'].nodeValue = "pizza-man-left.gif";
+                }
+
+                break;
+        }
+
+
+    }
+    cooked.addEventListener("animationstartcooked", listener, false);
+    cooked.addEventListener("animationendcooked", listener, false);
+    cooked.addEventListener("animationiterationcooked", listener, false);
+
+    cookedpizza.addEventListener("click", toggleChefcooked, false);
+    </script>
+</body>
+
+</html>
